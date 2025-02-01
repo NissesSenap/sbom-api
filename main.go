@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	dsn := "postgres://youruser:yourpassword@localhost:5432/yourdbname"
+	dsn := "postgres://sbom:sbom@localhost:5432/sbom"
 	dbpool, err := pgxpool.New(context.Background(), dsn)
 
 	if err != nil {
