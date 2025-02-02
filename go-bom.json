@@ -1,0 +1,528 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.6",
+    "serialNumber": "urn:uuid:a8e20a25-be60-459a-939d-8b42998c66fe",
+    "version": 1,
+    "metadata": {
+        "timestamp": "2025-02-02T11:36:02Z",
+        "tools": {
+            "components": [
+                {
+                    "group": "@cyclonedx",
+                    "name": "cdxgen",
+                    "version": "11.1.5",
+                    "purl": "pkg:npm/%40cyclonedx/cdxgen@11.1.5",
+                    "type": "application",
+                    "bom-ref": "pkg:npm/@cyclonedx/cdxgen@11.1.5",
+                    "publisher": "OWASP Foundation",
+                    "authors": [
+                        {
+                            "name": "OWASP Foundation"
+                        }
+                    ]
+                }
+            ]
+        },
+        "authors": [
+            {
+                "name": "OWASP Foundation"
+            }
+        ],
+        "lifecycles": [
+            {
+                "phase": "build"
+            }
+        ],
+        "component": {
+            "group": "",
+            "name": "github.com/NissesSenap/sbom-api",
+            "version": "",
+            "purl": "pkg:golang/github.com/NissesSenap/sbom-api",
+            "bom-ref": "pkg:golang/github.com/NissesSenap/sbom-api",
+            "scope": "required",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.23.5"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                }
+            ],
+            "type": "application"
+        },
+        "properties": [
+            {
+                "name": "cdx:bom:componentTypes",
+                "value": "golang"
+            },
+            {
+                "name": "cdx:bom:componentNamespaces",
+                "value": "github.com/jackc\\ngithub.com/jackc/pgx\\ngithub.com/jackc/puddle\\ngolang.org/x"
+            }
+        ]
+    },
+    "components": [
+        {
+            "group": "",
+            "name": "github.com/jackc/pgpassfile",
+            "version": "v1.0.0",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "084c74892e5a99b34575c46dc4f8f9261133fb107ab91932e5ec95bbf5b61c48"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "MIT",
+                        "url": "https://pkg.go.dev/github.com/jackc/pgpassfile?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/jackc/pgpassfile/@v/v1.0.0.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.12"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "github.com/jackc/pgservicefile",
+            "version": "v0.0.0-20240606120523-5a60cdf6a761",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "e5325958a1169e23ef7b7def956612a0661e7e7de02d04738df0e585227d64a3"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "MIT",
+                        "url": "https://pkg.go.dev/github.com/jackc/pgservicefile?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/jackc/pgservicefile/@v/v0.0.0-20240606120523-5a60cdf6a761.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.14"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "github.com/jackc/pgx/v5",
+            "version": "v5.7.2",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "9dc63cf54196c60f361329195304a950a11f71c046198ab5c63acea6c6ec7c64"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "MIT",
+                        "url": "https://pkg.go.dev/github.com/jackc/pgx/v5?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/jackc/pgx/v5/@v/v5.7.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "github.com/jackc/puddle/v2",
+            "version": "v2.2.2",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "beb8a21171ef104eb9e1a60a5d78cebd9337f6a274abe6b391916b7c439cdc7e"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "MIT",
+                        "url": "https://pkg.go.dev/github.com/jackc/puddle/v2?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/jackc/puddle/v2/@v/v2.2.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.19"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "golang.org/x/crypto",
+            "version": "v0.31.0",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "903b0bbed581131ecc57db493a3f5b9d7b0f6f1c0943a72c4ffc782883784ac9"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause",
+                        "url": "https://pkg.go.dev/golang.org/x/crypto?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/golang.org/x/crypto@v0.31.0",
+            "type": "library",
+            "bom-ref": "pkg:golang/golang.org/x/crypto@v0.31.0",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/golang.org/x/crypto/@v/v0.31.0.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.20"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "crypto"
+            ]
+        },
+        {
+            "group": "",
+            "name": "golang.org/x/sync",
+            "version": "v0.10.0",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "0b3b7ec0abb5802c8414352d9f48c6e5056fa49eabcd5aabe5a5f2b7d76b41f9"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause",
+                        "url": "https://pkg.go.dev/golang.org/x/sync?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/golang.org/x/sync@v0.10.0",
+            "type": "library",
+            "bom-ref": "pkg:golang/golang.org/x/sync@v0.10.0",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/golang.org/x/sync/@v/v0.10.0.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.18"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "golang.org/x/text",
+            "version": "v0.21.0",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "e0805b31a32638f089f1279c8afcd21f9e3eef73c21663d6c4d4cb9bebd99044"
+                }
+            ],
+            "licenses": [
+                {
+                    "license": {
+                        "id": "BSD-3-Clause",
+                        "url": "https://pkg.go.dev/golang.org/x/text?tab=licenses"
+                    }
+                }
+            ],
+            "purl": "pkg:golang/golang.org/x/text@v0.21.0",
+            "type": "library",
+            "bom-ref": "pkg:golang/golang.org/x/text@v0.21.0",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/golang.org/x/text/@v/v0.21.0.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.18"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        }
+    ],
+    "dependencies": [
+        {
+            "ref": "pkg:golang/github.com/NissesSenap/sbom-api",
+            "dependsOn": [
+                "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
+                "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
+                "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
+                "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
+                "pkg:golang/golang.org/x/crypto@v0.31.0",
+                "pkg:golang/golang.org/x/sync@v0.10.0",
+                "pkg:golang/golang.org/x/text@v0.21.0"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
+            "dependsOn": []
+        },
+        {
+            "ref": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
+            "dependsOn": []
+        },
+        {
+            "ref": "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
+            "dependsOn": [
+                "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
+                "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
+                "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
+                "pkg:golang/golang.org/x/crypto@v0.31.0",
+                "pkg:golang/golang.org/x/sync@v0.10.0",
+                "pkg:golang/golang.org/x/text@v0.21.0"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
+            "dependsOn": []
+        },
+        {
+            "ref": "pkg:golang/golang.org/x/crypto@v0.31.0",
+            "dependsOn": [
+                "pkg:golang/golang.org/x/text@v0.21.0"
+            ]
+        },
+        {
+            "ref": "pkg:golang/golang.org/x/sync@v0.10.0",
+            "dependsOn": []
+        },
+        {
+            "ref": "pkg:golang/golang.org/x/text@v0.21.0",
+            "dependsOn": [
+                "pkg:golang/golang.org/x/sync@v0.10.0"
+            ]
+        }
+    ],
+    "annotations": []
+}
