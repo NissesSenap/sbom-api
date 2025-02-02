@@ -26,7 +26,7 @@ func ParseAndStoreSBOM(ctx context.Context, dbpool *pgxpool.Pool, filePath strin
 	}
 
 	// Insert application
-	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, "MyApplication")
+	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, bom.Metadata.Component.Name)
 	if err != nil {
 		return fmt.Errorf("failed to insert application: %w", err)
 	}

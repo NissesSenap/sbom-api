@@ -19,7 +19,7 @@ func insertApplication(ctx context.Context, dbpool *pgxpool.Pool, name string) (
 	return id, err
 }
 
-func getOrInsertApplication(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
+func GetOrInsertApplication(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
 	id, err := getApplication(ctx, dbpool, name)
 	if err == nil {
 		return id, nil
@@ -39,7 +39,7 @@ func insertPackage(ctx context.Context, dbpool *pgxpool.Pool, name string) (int,
 	return id, err
 }
 
-func getOrInsertPackage(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
+func GetOrInsertPackage(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
 	id, err := getPackage(ctx, dbpool, name)
 	if err == nil {
 		return id, nil
@@ -58,7 +58,7 @@ func insertVersion(ctx context.Context, dbpool *pgxpool.Pool, packageID int, ver
 	return err
 }
 
-func getOrInsertVersion(ctx context.Context, dbpool *pgxpool.Pool, packageID int, version string) error {
+func GetOrInsertVersion(ctx context.Context, dbpool *pgxpool.Pool, packageID int, version string) error {
 	_, err := getVersion(ctx, dbpool, packageID, version)
 	if err == nil {
 		return nil
@@ -78,7 +78,7 @@ func insertLicense(ctx context.Context, dbpool *pgxpool.Pool, name string) (int,
 	return id, err
 }
 
-func getOrInsertLicense(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
+func GetOrInsertLicense(ctx context.Context, dbpool *pgxpool.Pool, name string) (int, error) {
 	id, err := getLicense(ctx, dbpool, name)
 	if err == nil {
 		return id, nil
@@ -97,7 +97,7 @@ func insertApplicationPackage(ctx context.Context, dbpool *pgxpool.Pool, applica
 	return err
 }
 
-func getOrInsertApplicationPackage(ctx context.Context, dbpool *pgxpool.Pool, applicationID, packageID, licenseID int) error {
+func GetOrInsertApplicationPackage(ctx context.Context, dbpool *pgxpool.Pool, applicationID, packageID, licenseID int) error {
 	_, err := getApplicationPackage(ctx, dbpool, applicationID, packageID, licenseID)
 	if err == nil {
 		fmt.Println("This is already in the database")
