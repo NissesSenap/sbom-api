@@ -21,7 +21,6 @@ func main() {
 
 	ctx := context.Background()
 	dbpool, err := pgxpool.New(ctx, cfg.DatabaseURL)
-
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to create connection pool: %v\n", err)
 		os.Exit(1)
@@ -30,10 +29,24 @@ func main() {
 
 	db.CreateTables(ctx, dbpool)
 
-	bom, err := sbom.ParseSBOM("../../go-bom.json")
-	err = sbom.StoreSBOM(ctx, dbpool, bom)
+	var parser sbom.SBOMParser
+	switch cfg.SBOMformat {
+	case "cyclonedx":
+		parser = &sbom.CycloneDXParser{}
+	case "spdx":
+		log.Fatalf("Unsupported SBOM format: %s\n", cfg.SBOMformat)
+	default:
+		log.Fatalf("Unsupported SBOM format: %s\n", cfg.SBOMformat)
+	}
+
+	bom, err := parser.Parse("go-bom.json")
 	if err != nil {
-		log.Fatalf("Failed to parse and store SBOM: %v\n", err)
+		log.Fatalf("Failed to parse SBOM: %v\n", err)
+	}
+
+	err = parser.Store(ctx, dbpool, bom)
+	if err != nil {
+		log.Fatalf("Failed to store SBOM: %v\n", err)
 	}
 
 	fmt.Println("Database connected, tables created, and SBOM data stored successfully!")

@@ -11,31 +11,36 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func ParseSBOM(filePath string) (cyclonedx.BOM, error) {
-	// Read the SBOM file
+type CycloneDXParser struct{}
+
+func (p *CycloneDXParser) Parse(filePath string) (interface{}, error) {
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		return cyclonedx.BOM{}, fmt.Errorf("failed to read SBOM file: %w", err)
+		return nil, fmt.Errorf("failed to read SBOM file: %w", err)
 	}
 
-	// Parse the SBOM file
 	var bom cyclonedx.BOM
 	err = json.Unmarshal(data, &bom)
 	if err != nil {
-		return cyclonedx.BOM{}, fmt.Errorf("failed to parse SBOM file: %w", err)
+		return nil, fmt.Errorf("failed to parse SBOM file: %w", err)
 	}
 	return bom, nil
 }
 
-func StoreSBOM(ctx context.Context, dbpool *pgxpool.Pool, bom cyclonedx.BOM) error {
+func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}) error {
+	cdxBOM, ok := bom.(cyclonedx.BOM)
+	if !ok {
+		return fmt.Errorf("invalid BOM type")
+	}
+
 	// Insert application
-	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, bom.Metadata.Component.Name)
+	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, cdxBOM.Metadata.Component.Name)
 	if err != nil {
 		return fmt.Errorf("failed to insert application: %w", err)
 	}
 
 	// Store the SBOM data in the database
-	for _, component := range *bom.Components {
+	for _, component := range *cdxBOM.Components {
 		// Insert package
 		packageID, err := db.GetOrInsertPackage(ctx, dbpool, component.Name)
 		if err != nil {
