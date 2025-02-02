@@ -6,15 +6,21 @@ import (
 	"log"
 	"os"
 
+	"github.com/NissesSenap/sbom-api/internal/config"
 	"github.com/NissesSenap/sbom-api/internal/db"
 	"github.com/NissesSenap/sbom-api/internal/sbom"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 func main() {
-	dsn := "postgres://sbom:sbom@localhost:5432/sbom"
+	cfg, err := config.LoadConfig()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to load config: %v\n", err)
+		os.Exit(1)
+	}
+
 	ctx := context.Background()
-	dbpool, err := pgxpool.New(ctx, dsn)
+	dbpool, err := pgxpool.New(ctx, cfg.DatabaseURL)
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to create connection pool: %v\n", err)
@@ -24,7 +30,7 @@ func main() {
 
 	db.CreateTables(ctx, dbpool)
 
-	err = sbom.ParseAndStoreSBOM(ctx, dbpool, "go-bom.json")
+	err = sbom.ParseAndStoreSBOM(ctx, dbpool, "../../go-bom.json")
 	if err != nil {
 		log.Fatalf("Failed to parse and store SBOM: %v\n", err)
 	}
