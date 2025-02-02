@@ -11,20 +11,23 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-func ParseAndStoreSBOM(ctx context.Context, dbpool *pgxpool.Pool, filePath string) error {
+func ParseSBOM(filePath string) (cyclonedx.BOM, error) {
 	// Read the SBOM file
 	data, err := os.ReadFile(filePath)
 	if err != nil {
-		return fmt.Errorf("failed to read SBOM file: %w", err)
+		return cyclonedx.BOM{}, fmt.Errorf("failed to read SBOM file: %w", err)
 	}
 
 	// Parse the SBOM file
 	var bom cyclonedx.BOM
 	err = json.Unmarshal(data, &bom)
 	if err != nil {
-		return fmt.Errorf("failed to parse SBOM file: %w", err)
+		return cyclonedx.BOM{}, fmt.Errorf("failed to parse SBOM file: %w", err)
 	}
+	return bom, nil
+}
 
+func StoreSBOM(ctx context.Context, dbpool *pgxpool.Pool, bom cyclonedx.BOM) error {
 	// Insert application
 	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, bom.Metadata.Component.Name)
 	if err != nil {

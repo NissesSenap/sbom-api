@@ -30,7 +30,8 @@ func main() {
 
 	db.CreateTables(ctx, dbpool)
 
-	err = sbom.ParseAndStoreSBOM(ctx, dbpool, "../../go-bom.json")
+	bom, err := sbom.ParseSBOM("../../go-bom.json")
+	err = sbom.StoreSBOM(ctx, dbpool, bom)
 	if err != nil {
 		log.Fatalf("Failed to parse and store SBOM: %v\n", err)
 	}
