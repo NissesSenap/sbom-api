@@ -33,35 +33,53 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 		return fmt.Errorf("invalid BOM type")
 	}
 
+	q := db.New(dbpool)
+
 	// Insert application
-	applicationID, err := db.GetOrInsertApplication(ctx, dbpool, cdxBOM.Metadata.Component.Name)
+	applicationID, err := q.GetApplication(ctx, cdxBOM.Metadata.Component.Name)
 	if err != nil {
-		return fmt.Errorf("failed to insert application: %w", err)
+		applicationID, err = q.InsertApplication(ctx, cdxBOM.Metadata.Component.Name)
+		if err != nil {
+			return fmt.Errorf("failed to insert application: %w", err)
+		}
 	}
 
 	// Store the SBOM data in the database
 	for _, component := range *cdxBOM.Components {
 		// Insert package
-		packageID, err := db.GetOrInsertPackage(ctx, dbpool, component.Name)
+		packageID, err := q.GetPackage(ctx, component.Name)
 		if err != nil {
-			return fmt.Errorf("failed to insert package: %w", err)
+			packageID, err = q.InsertPackage(ctx, component.Name)
+			if err != nil {
+				return fmt.Errorf("failed to insert package: %w", err)
+			}
 		}
 
 		// Insert version
-		err = db.GetOrInsertVersion(ctx, dbpool, packageID, component.Version)
+		err = q.InsertVersion(ctx, db.InsertVersionParams{
+			PackageID: packageID,
+			Version:   component.Version,
+		})
 		if err != nil {
 			return fmt.Errorf("failed to insert version: %w", err)
 		}
 
-		// Insert licenses
+		// Insert license
 		for _, license := range *component.Licenses {
-			licenseID, err := db.GetOrInsertLicense(ctx, dbpool, license.License.ID)
+			licenseID, err := q.GetLicense(ctx, license.License.Name)
 			if err != nil {
-				return fmt.Errorf("failed to insert license: %w", err)
+				licenseID, err = q.InsertLicense(ctx, license.License.Name)
+				if err != nil {
+					return fmt.Errorf("failed to insert license: %w", err)
+				}
 			}
 
 			// Insert application package
-			err = db.GetOrInsertApplicationPackage(ctx, dbpool, applicationID, packageID, licenseID)
+			err = q.InsertApplicationPackage(ctx, db.InsertApplicationPackageParams{
+				ApplicationID: applicationID,
+				PackageID:     packageID,
+				LicenseID:     licenseID,
+			})
 			if err != nil {
 				return fmt.Errorf("failed to insert application package: %w", err)
 			}
