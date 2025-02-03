@@ -74,14 +74,21 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 				}
 			}
 
-			// Insert application package
-			err = q.InsertApplicationPackage(ctx, db.InsertApplicationPackageParams{
+			_, err = q.GetApplicationPackage(ctx, db.GetApplicationPackageParams{
 				ApplicationID: applicationID,
 				PackageID:     packageID,
 				LicenseID:     licenseID,
 			})
-			if err != nil {
-				return fmt.Errorf("failed to insert application package: %w", err)
+			if err == nil {
+				// Insert application package
+				err = q.InsertApplicationPackage(ctx, db.InsertApplicationPackageParams{
+					ApplicationID: applicationID,
+					PackageID:     packageID,
+					LicenseID:     licenseID,
+				})
+				if err != nil {
+					return fmt.Errorf("failed to insert application package: %w", err)
+				}
 			}
 		}
 	}
