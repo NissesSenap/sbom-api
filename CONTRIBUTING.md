@@ -1,5 +1,10 @@
 # Contributing
 
+## Linting
+
+In the project [golangci-lint](https://golangci-lint.run/) is used, and you can run it locally before creating a PR.
+To see which version of golangci-lint to use, see [pull.yaml](.github/workflows/pull.yaml)
+
 ## e2e
 
 ```shell
