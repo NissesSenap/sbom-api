@@ -49,20 +49,33 @@ func run() error {
 		return fmt.Errorf("failed to create tables: %w", err)
 	}
 
+	var parser sbom.SBOMParser
+	switch cfg.SBOMformat {
+	case "cyclonedx":
+		parser = &sbom.CycloneDXParser{}
+	default:
+		return fmt.Errorf("unsupported SBOM format: %s", cfg.SBOMformat)
+	}
+
 	storageService, err := storage.NewS3Storage(cfg.AWSEndpoint, cfg.AWSAccessKey, cfg.AWSSecretKey)
 	if err != nil {
 		return fmt.Errorf("failed to initialize storage service: %w", err)
 	}
-
-	parser := sbom.NewCycloneDXParser(storageService)
-
+	// TODO, change bomFilename and appname depending on http query/sbom content
+	const bomFilename = "go-bom.json"
+	const appname = "sbom-api"
 	bom, err := parser.Parse("go-bom.json")
 	if err != nil {
 		return fmt.Errorf("failed to parse SBOM: %w", err)
 	}
 
-	if err := parser.Store(ctx, dbpool, bom, "go-bom.json", cfg.S3Bucket, "sbom/go-bom.json"); err != nil {
+	if err := parser.Store(ctx, dbpool, bom); err != nil {
 		return fmt.Errorf("failed to store SBOM: %w", err)
+	}
+
+	// Upload the original SBOM file to the object storage
+	if err := storageService.Upload(ctx, cfg.S3Bucket, fmt.Sprintf("%v/%v", appname, bomFilename), bomFilename); err != nil {
+		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
 	}
 
 	fmt.Println("Database connected, tables created, and SBOM data stored successfully!")
