@@ -33,3 +33,22 @@ ko build --sbom=none --bare --platform linux/amd64 -t test1 --image-refs .digest
 export FETCH_LICENSE=true
 cdxgen -t oci ko.local:5b7b28cfdd64a6217228283bea8e6ca0e7d746c6a770ca88976610ec650b97be -spec-version  1.6 -o container-bom.json
 ```
+
+## TODO
+
+This list is far from complete, just adding some notes for me.
+Way to lazy to create issues, and we all know this project will never be finished any way :D.
+
+- Make in to a HTTP api
+  - How should the API look like?
+  - Adapt the DB schema accordingly
+- Store which s3 path that was used and add it to the DB, so we can get the data again
+- otel based metrics
+  - custom metrics on how many sboms that we save
+- Use some decent config env parser
+- Should you be able to upload attesations after, or should they be merged in to the sbom?
+- Create e2e tests
+  - Upload a SBOM using the API, verify that a file exist in s3 and some data in the DB
+  - Upload a second sbom, with "same" sbom version
+  - Upload a third sbom, with "different" sbom version
+- Fix GitHub rules and branch protection
