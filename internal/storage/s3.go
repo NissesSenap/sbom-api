@@ -16,7 +16,7 @@ type S3Storage struct {
 	client *s3.Client
 }
 
-func NewS3Storage(endpoint, region, accessKey, secretKey string) (*S3Storage, error) {
+func NewS3Storage(endpoint, accessKey, secretKey string) (*S3Storage, error) {
 	// https://stackoverflow.com/questions/67575681/is-aws-go-sdk-v2-integrated-with-local-minio-server
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	client := s3.NewFromConfig(cfg, func(o *s3.Options) {

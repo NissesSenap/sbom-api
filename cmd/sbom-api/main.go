@@ -49,7 +49,7 @@ func run() error {
 		return fmt.Errorf("failed to create tables: %w", err)
 	}
 
-	storageService, err := storage.NewS3Storage()
+	storageService, err := storage.NewS3Storage(cfg.AWSEndpoint, cfg.AWSAccessKey, cfg.AWSSecretKey)
 	if err != nil {
 		return fmt.Errorf("failed to initialize storage service: %w", err)
 	}
