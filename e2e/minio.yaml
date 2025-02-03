@@ -64,6 +64,9 @@ kind: Job
 metadata:
   name: create-sbom-bucket
   namespace: minio
+  labels:
+    app: minio
+    job: create-sbom-bucket
 spec:
   template:
     spec:

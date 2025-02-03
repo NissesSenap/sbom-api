@@ -11,20 +11,22 @@ To see which version of golangci-lint to use, see [pull.yaml](.github/workflows/
 # create kind cluster
 kind create cluster --config e2e/kind.yaml
 # create postgresql instance
-k apply -f e2e/postgres.yaml
+sh e2e/run.sh
 ```
 
-Don't know why, but I need to do port-forward...
+The script will start port-forwads to minio and postgresql.
 
-```shell
-kubectl port-forward svc/postgres 5432:5432
-```
+### Postgres
 
 Using psql
 
 ```shell
 psql -h localhost -d sbom -U sbom
 ```
+
+### Minio
+
+If the app is unable to reach the `sbom` bucket, verify that the Kubernetes job has run as inteded.
 
 ## Database managment
 
