@@ -10,6 +10,7 @@ import (
 	"github.com/NissesSenap/sbom-api/internal/config"
 	"github.com/NissesSenap/sbom-api/internal/db"
 	"github.com/NissesSenap/sbom-api/internal/sbom"
+	"github.com/NissesSenap/sbom-api/internal/storage"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -48,20 +49,19 @@ func run() error {
 		return fmt.Errorf("failed to create tables: %w", err)
 	}
 
-	var parser sbom.SBOMParser
-	switch cfg.SBOMformat {
-	case "cyclonedx":
-		parser = &sbom.CycloneDXParser{}
-	default:
-		return fmt.Errorf("unsupported SBOM format: %s", cfg.SBOMformat)
+	storageService, err := storage.NewS3Storage()
+	if err != nil {
+		return fmt.Errorf("failed to initialize storage service: %w", err)
 	}
+
+	parser := sbom.NewCycloneDXParser(storageService)
 
 	bom, err := parser.Parse("go-bom.json")
 	if err != nil {
 		return fmt.Errorf("failed to parse SBOM: %w", err)
 	}
 
-	if err := parser.Store(ctx, dbpool, bom); err != nil {
+	if err := parser.Store(ctx, dbpool, bom, "go-bom.json", cfg.S3Bucket, "sbom/go-bom.json"); err != nil {
 		return fmt.Errorf("failed to store SBOM: %w", err)
 	}
 

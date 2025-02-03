@@ -8,10 +8,17 @@ import (
 
 	"github.com/CycloneDX/cyclonedx-go"
 	"github.com/NissesSenap/sbom-api/internal/db"
+	"github.com/NissesSenap/sbom-api/internal/storage"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-type CycloneDXParser struct{}
+type CycloneDXParser struct {
+	storageService storage.StorageService
+}
+
+func NewCycloneDXParser(storageService storage.StorageService) *CycloneDXParser {
+	return &CycloneDXParser{storageService: storageService}
+}
 
 func (p *CycloneDXParser) Parse(filePath string) (interface{}, error) {
 	data, err := os.ReadFile(filePath)
@@ -27,7 +34,7 @@ func (p *CycloneDXParser) Parse(filePath string) (interface{}, error) {
 	return bom, nil
 }
 
-func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}) error {
+func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}, filePath, bucket, key string) error {
 	cdxBOM, ok := bom.(cyclonedx.BOM)
 	if !ok {
 		return fmt.Errorf("invalid BOM type")
@@ -44,6 +51,11 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 		if err := storeComponent(ctx, q, applicationID, component); err != nil {
 			return err
 		}
+	}
+
+	// Upload the original SBOM file to the object storage
+	if err := p.storageService.Upload(ctx, bucket, key, filePath); err != nil {
+		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
 	}
 
 	return nil
