@@ -18,6 +18,7 @@ type S3Storage struct {
 
 func NewS3Storage(endpoint, accessKey, secretKey string) (*S3Storage, error) {
 	// https://stackoverflow.com/questions/67575681/is-aws-go-sdk-v2-integrated-with-local-minio-server
+	// TODO, fix so default AWS config is used and make minio only for testing/configurable
 	cfg, err := config.LoadDefaultConfig(context.TODO())
 	client := s3.NewFromConfig(cfg, func(o *s3.Options) {
 		o.Credentials = credentials.NewStaticCredentialsProvider(accessKey, secretKey, "")
