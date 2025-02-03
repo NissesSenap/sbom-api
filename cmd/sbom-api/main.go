@@ -10,6 +10,7 @@ import (
 	"github.com/NissesSenap/sbom-api/internal/config"
 	"github.com/NissesSenap/sbom-api/internal/db"
 	"github.com/NissesSenap/sbom-api/internal/sbom"
+	"github.com/NissesSenap/sbom-api/internal/storage"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -56,6 +57,13 @@ func run() error {
 		return fmt.Errorf("unsupported SBOM format: %s", cfg.SBOMformat)
 	}
 
+	storageService, err := storage.NewS3Storage(cfg.AWSEndpoint, cfg.AWSAccessKey, cfg.AWSSecretKey)
+	if err != nil {
+		return fmt.Errorf("failed to initialize storage service: %w", err)
+	}
+	// TODO, change bomFilename and appname depending on http query/sbom content
+	const bomFilename = "go-bom.json"
+	const appname = "sbom-api"
 	bom, err := parser.Parse("go-bom.json")
 	if err != nil {
 		return fmt.Errorf("failed to parse SBOM: %w", err)
@@ -63,6 +71,11 @@ func run() error {
 
 	if err := parser.Store(ctx, dbpool, bom); err != nil {
 		return fmt.Errorf("failed to store SBOM: %w", err)
+	}
+
+	// Upload the original SBOM file to the object storage
+	if err := storageService.Upload(ctx, cfg.S3Bucket, fmt.Sprintf("%v/%v", appname, bomFilename), bomFilename); err != nil {
+		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
 	}
 
 	fmt.Println("Database connected, tables created, and SBOM data stored successfully!")
