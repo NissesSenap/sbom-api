@@ -20,3 +20,14 @@ Using psql
 ```shell
 psql -h localhost -d sbom -U sbom
 ```
+
+## Database managment
+
+After some back and forth I went with [sqlc](https://github.com/sqlc-dev/sqlc) to generate the queries in a type safe way.
+I use pgx for connection pool maangment.
+
+```shell
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+```
+
+In the long run I will setup a [CI/CD](https://docs.sqlc.dev/en/stable/howto/ci-cd.html) solution to verify that it's up to date.
