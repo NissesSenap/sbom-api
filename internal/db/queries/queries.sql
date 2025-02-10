@@ -2,7 +2,7 @@
 SELECT id FROM Applications WHERE name = $1;
 
 -- name: InsertApplication :one
-INSERT INTO Applications (name) VALUES ($1) RETURNING id;
+INSERT INTO Applications (name, sbom_url) VALUES ($1, $2) RETURNING id;
 
 -- name: GetPackage :one
 SELECT id FROM Packages WHERE name = $1;

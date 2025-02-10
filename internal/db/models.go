@@ -4,9 +4,14 @@
 
 package db
 
+import (
+	"github.com/jackc/pgx/v5/pgtype"
+)
+
 type Application struct {
-	ID   int32
-	Name string
+	ID      int32
+	Name    string
+	SbomUrl pgtype.Text
 }
 
 type Applicationpackage struct {

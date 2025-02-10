@@ -27,7 +27,7 @@ func (p *CycloneDXParser) Parse(filePath string) (interface{}, error) {
 	return bom, nil
 }
 
-func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}) error {
+func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}, sbomURL string) error {
 	cdxBOM, ok := bom.(cyclonedx.BOM)
 	if !ok {
 		return fmt.Errorf("invalid BOM type")
@@ -35,7 +35,7 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 
 	q := db.New(dbpool)
 
-	applicationID, err := getOrInsertApplication(ctx, q, cdxBOM.Metadata.Component.Name)
+	applicationID, err := getOrInsertApplication(ctx, q, cdxBOM.Metadata.Component.Name, sbomURL)
 	if err != nil {
 		return err
 	}
@@ -49,10 +49,13 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 	return nil
 }
 
-func getOrInsertApplication(ctx context.Context, q *db.Queries, appName string) (int32, error) {
+func getOrInsertApplication(ctx context.Context, q *db.Queries, appName, sbomURL string) (int32, error) {
 	applicationID, err := q.GetApplication(ctx, appName)
 	if err != nil {
-		applicationID, err = q.InsertApplication(ctx, appName)
+		applicationID, err = q.InsertApplication(ctx, db.InsertApplicationParams{
+			Name:    appName,
+			SbomUrl: sbomURL,
+		})
 		if err != nil {
 			return 0, fmt.Errorf("failed to insert application: %w", err)
 		}
