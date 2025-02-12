@@ -30,3 +30,13 @@ CREATE TABLE IF NOT EXISTS ApplicationPackages (
     FOREIGN KEY (license_id) REFERENCES Licenses(id),
     PRIMARY KEY (application_id, package_id, license_id)
 );
+
+-- New table to store application versions and their SBOM URLs
+CREATE TABLE IF NOT EXISTS ApplicationVersions (
+    id SERIAL PRIMARY KEY,
+    application_id INT NOT NULL,
+    version VARCHAR(50) NOT NULL,
+    sbom_url VARCHAR(255) NOT NULL,
+    FOREIGN KEY (application_id) REFERENCES Applications(id),
+    UNIQUE (application_id, version)
+);

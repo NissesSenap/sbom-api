@@ -15,6 +15,13 @@ type Applicationpackage struct {
 	LicenseID     int32
 }
 
+type Applicationversion struct {
+	ID            int32
+	ApplicationID int32
+	Version       string
+	SbomUrl       string
+}
+
 type License struct {
 	ID   int32
 	Name string
