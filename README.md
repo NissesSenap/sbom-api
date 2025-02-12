@@ -20,7 +20,15 @@ I will st
 ### golang
 
 ```shell
-cdxgen -t golang -o go-bom.json .
+cdxgen -t golang -o go-bom.json cmd/sbom-api/
+```
+
+### cyclonedx gomod
+
+Using this command I was able to find the version.
+
+```shell
+cyclonedx-gomod app  -json -output gomod.bom.json -packages -files -licenses -main cmd/sbom-api/
 ```
 
 ### Container image
