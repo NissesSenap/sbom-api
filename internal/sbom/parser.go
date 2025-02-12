@@ -8,5 +8,5 @@ import (
 
 type SBOMParser interface {
 	Parse(filePath string) (interface{}, error)
-	Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}) error
+	Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}, sbomURL string) error
 }

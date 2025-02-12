@@ -7,6 +7,8 @@ package db
 
 import (
 	"context"
+
+	"github.com/jackc/pgx/v5/pgtype"
 )
 
 const getApplication = `-- name: GetApplication :one
@@ -76,11 +78,16 @@ func (q *Queries) GetVersion(ctx context.Context, arg GetVersionParams) (int32, 
 }
 
 const insertApplication = `-- name: InsertApplication :one
-INSERT INTO Applications (name) VALUES ($1) RETURNING id
+INSERT INTO Applications (name, sbom_url) VALUES ($1, $2) RETURNING id
 `
 
-func (q *Queries) InsertApplication(ctx context.Context, name string) (int32, error) {
-	row := q.db.QueryRow(ctx, insertApplication, name)
+type InsertApplicationParams struct {
+	Name    string
+	SbomUrl pgtype.Text
+}
+
+func (q *Queries) InsertApplication(ctx context.Context, arg InsertApplicationParams) (int32, error) {
+	row := q.db.QueryRow(ctx, insertApplication, arg.Name, arg.SbomUrl)
 	var id int32
 	err := row.Scan(&id)
 	return id, err

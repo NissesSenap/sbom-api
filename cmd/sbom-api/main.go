@@ -61,7 +61,7 @@ func run() error {
 	if err != nil {
 		return fmt.Errorf("failed to initialize storage service: %w", err)
 	}
-	// TODO, change bomFilename and appname depending on http query/sbom content
+
 	const bomFilename = "go-bom.json"
 	const appname = "sbom-api"
 	bom, err := parser.Parse("go-bom.json")
@@ -69,12 +69,12 @@ func run() error {
 		return fmt.Errorf("failed to parse SBOM: %w", err)
 	}
 
-	if err := parser.Store(ctx, dbpool, bom); err != nil {
+	sbomURL := fmt.Sprintf("%v/%v", appname, bomFilename)
+	if err := parser.Store(ctx, dbpool, bom, sbomURL); err != nil {
 		return fmt.Errorf("failed to store SBOM: %w", err)
 	}
 
-	// Upload the original SBOM file to the object storage
-	if err := storageService.Upload(ctx, cfg.S3Bucket, fmt.Sprintf("%v/%v", appname, bomFilename), bomFilename); err != nil {
+	if err := storageService.Upload(ctx, cfg.S3Bucket, sbomURL, bomFilename); err != nil {
 		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
 	}
 
