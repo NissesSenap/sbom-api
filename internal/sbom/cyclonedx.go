@@ -27,7 +27,7 @@ func (p *CycloneDXParser) Parse(filePath string) (interface{}, error) {
 	return bom, nil
 }
 
-func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}) error {
+func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom interface{}, sbomURL string) error {
 	cdxBOM, ok := bom.(cyclonedx.BOM)
 	if !ok {
 		return fmt.Errorf("invalid BOM type")
@@ -38,6 +38,16 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 	applicationID, err := getOrInsertApplication(ctx, q, cdxBOM.Metadata.Component.Name)
 	if err != nil {
 		return err
+	}
+
+	version := cdxBOM.Metadata.Component.Version
+	if version == "" {
+		version = "0.1.0"
+	}
+
+	_, err = q.InsertApplicationVersion(ctx, applicationID, version, sbomURL)
+	if err != nil {
+		return fmt.Errorf("failed to insert application version: %w", err)
 	}
 
 	for _, component := range *cdxBOM.Components {

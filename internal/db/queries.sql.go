@@ -101,6 +101,23 @@ func (q *Queries) InsertApplicationPackage(ctx context.Context, arg InsertApplic
 	return err
 }
 
+const insertApplicationVersion = `-- name: InsertApplicationVersion :one
+INSERT INTO ApplicationVersions (application_id, version, sbom_url) VALUES ($1, $2, $3) RETURNING id
+`
+
+type InsertApplicationVersionParams struct {
+	ApplicationID int32
+	Version       string
+	SbomUrl       string
+}
+
+func (q *Queries) InsertApplicationVersion(ctx context.Context, arg InsertApplicationVersionParams) (int32, error) {
+	row := q.db.QueryRow(ctx, insertApplicationVersion, arg.ApplicationID, arg.Version, arg.SbomUrl)
+	var id int32
+	err := row.Scan(&id)
+	return id, err
+}
+
 const insertLicense = `-- name: InsertLicense :one
 INSERT INTO Licenses (name) VALUES ($1) RETURNING id
 `

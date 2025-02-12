@@ -64,18 +64,19 @@ func run() error {
 	// TODO, change bomFilename and appname depending on http query/sbom content
 	const bomFilename = "go-bom.json"
 	const appname = "sbom-api"
-	bom, err := parser.Parse("go-bom.json")
+	bom, err := parser.Parse(bomFilename)
 	if err != nil {
 		return fmt.Errorf("failed to parse SBOM: %w", err)
 	}
 
-	if err := parser.Store(ctx, dbpool, bom); err != nil {
-		return fmt.Errorf("failed to store SBOM: %w", err)
+	// Upload the original SBOM file to the object storage
+	sbomURL := fmt.Sprintf("%v/%v", appname, bomFilename)
+	if err := storageService.Upload(ctx, cfg.S3Bucket, sbomURL, bomFilename); err != nil {
+		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
 	}
 
-	// Upload the original SBOM file to the object storage
-	if err := storageService.Upload(ctx, cfg.S3Bucket, fmt.Sprintf("%v/%v", appname, bomFilename), bomFilename); err != nil {
-		return fmt.Errorf("failed to upload SBOM file to storage: %w", err)
+	if err := parser.Store(ctx, dbpool, bom, sbomURL); err != nil {
+		return fmt.Errorf("failed to store SBOM: %w", err)
 	}
 
 	fmt.Println("Database connected, tables created, and SBOM data stored successfully!")

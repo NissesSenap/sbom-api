@@ -27,3 +27,6 @@ SELECT 1 FROM ApplicationPackages WHERE application_id = $1 AND package_id = $2 
 
 -- name: InsertApplicationPackage :exec
 INSERT INTO ApplicationPackages (application_id, package_id, license_id) VALUES ($1, $2, $3);
+
+-- name: InsertApplicationVersion :one
+INSERT INTO ApplicationVersions (application_id, version, sbom_url) VALUES ($1, $2, $3) RETURNING id;
