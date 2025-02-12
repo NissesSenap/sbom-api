@@ -45,7 +45,11 @@ func (p *CycloneDXParser) Store(ctx context.Context, dbpool *pgxpool.Pool, bom i
 		version = "0.1.0"
 	}
 
-	_, err = q.InsertApplicationVersion(ctx, applicationID, version, sbomURL)
+	_, err = q.InsertApplicationVersion(ctx, db.InsertApplicationVersionParams{
+		ApplicationID: applicationID,
+		Version:       version,
+		SbomUrl:       sbomURL,
+	})
 	if err != nil {
 		return fmt.Errorf("failed to insert application version: %w", err)
 	}
