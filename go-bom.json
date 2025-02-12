@@ -1,10 +1,10 @@
 {
     "bomFormat": "CycloneDX",
     "specVersion": "1.6",
-    "serialNumber": "urn:uuid:a8e20a25-be60-459a-939d-8b42998c66fe",
+    "serialNumber": "urn:uuid:f509a57e-f3b9-49bb-ba18-0c13918f81dc",
     "version": 1,
     "metadata": {
-        "timestamp": "2025-02-02T11:36:02Z",
+        "timestamp": "2025-02-12T09:03:19Z",
         "tools": {
             "components": [
                 {
@@ -63,11 +63,990 @@
             },
             {
                 "name": "cdx:bom:componentNamespaces",
-                "value": "github.com/jackc\\ngithub.com/jackc/pgx\\ngithub.com/jackc/puddle\\ngolang.org/x"
+                "value": "github.com/CycloneDX\\ngithub.com/aws\\ngithub.com/aws/aws-sdk-go-v2\\ngithub.com/aws/aws-sdk-go-v2/aws/protocol\\ngithub.com/aws/aws-sdk-go-v2/feature/ec2\\ngithub.com/aws/aws-sdk-go-v2/internal\\ngithub.com/aws/aws-sdk-go-v2/internal/endpoints\\ngithub.com/aws/aws-sdk-go-v2/service\\ngithub.com/aws/aws-sdk-go-v2/service/internal\\ngithub.com/jackc\\ngithub.com/jackc/pgx\\ngithub.com/jackc/puddle\\ngolang.org/x"
             }
         ]
     },
     "components": [
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2",
+            "version": "v1.36.0",
+            "scope": "required",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "e4f3082c654a896df6a03ce38fa454e76cab36b0cf50771b65062bd6c33baa63"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/@v/v1.36.0.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.7,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.7,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream",
+            "version": "v1.6.8",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "dd791e3d7e5d49ac6f78b01863b9ec6ec659acac42c84b84e69338ce2171c868"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.6.8",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.6.8",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream/@v/v1.6.8.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/config",
+            "version": "v1.29.4",
+            "scope": "required",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "8f6fc017b8ffab1566b0d202870d6d59fb1528e6b22681910e38354e0abb34f9"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.29.4",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.29.4",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/config/@v/v1.29.4.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.7,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.7,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/credentials",
+            "version": "v1.17.57",
+            "scope": "required",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "da47abc4f5146d36a002bfe491a1e2aaf8ff6dc607ce2daa8894bf6629e5954d"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.17.57",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.17.57",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/credentials/@v/v1.17.57.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.7,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.7,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+            "version": "v1.16.27",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "c3504048520f38f51a7bb020687e126e335b7dd931ba080bc867cd1539fc2136"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.16.27",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.16.27",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/feature/ec2/imds/@v/v1.16.27.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/internal/configsources",
+            "version": "v1.3.31",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "1eebba186d184df6cfa614240d2a387441a64114ca6fd93d1bb45db72416c6e2"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/internal/configsources/@v/v1.3.31.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/internal/endpoints/v2",
+            "version": "v2.6.31",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "c9a7677ec0f0a977956a885b19cfd1683dbcecfbb2470db0ba0921e592f627a9"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2/@v/v2.6.31.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/internal/ini",
+            "version": "v1.8.2",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "15bb7281f445cdef6eb0069d9a718935cf0ab0fdf8ea411efb2dbfa328460067"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.2",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/internal/ini/@v/v1.8.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/internal/v4a",
+            "version": "v1.3.31",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "f2d30172e5632f890ffc40842164c25adc15da48fafa8b842a5e1ca91e2258bc"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.3.31",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.3.31",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/internal/v4a/@v/v1.3.31.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding",
+            "version": "v1.12.2",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "65adc81ea4d0fb235c447c6ed4e16e701874002653e23e1540517406aa5970b6"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding/@v/v1.12.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/internal/checksum",
+            "version": "v1.5.5",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "887571d89f695b321374fe4c258eaa59f1b7e137c3f4403e422dde57aa90097c"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/checksum@v1.5.5",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/checksum@v1.5.5",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/internal/checksum/@v/v1.5.5.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+            "version": "v1.12.12",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "bac55d5896a8b1aeba34cbe60abaf4f0d7160c146fe04ebe6051b6a54770d4b9"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url/@v/v1.12.12.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/internal/s3shared",
+            "version": "v1.18.12",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "748565aae48f50ca8426dc76fd6d7b48cd92b84491695121115f5a95c32ac63c"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/s3shared@v1.18.12",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/s3shared@v1.18.12",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/internal/s3shared/@v/v1.18.12.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/s3",
+            "version": "v1.75.2",
+            "scope": "required",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "1474879b211493345b68516aaa6e9b90b00e40782a86c2e67c26a1bc204c8b20"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/s3@v1.75.2",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/s3@v1.75.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/s3/@v/v1.75.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.7,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.7,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/sso",
+            "version": "v1.24.14",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "f892504f107a3789e202b0b5e1836dc5c42dc04ab34b7a3d677da7eeadf745fb"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.24.14",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.24.14",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/sso/@v/v1.24.14.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/ssooidc",
+            "version": "v1.28.13",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "b6faa51688daf3fb34a3e52bb80d4dadece8fdd7f43f376e9cc0c3bab51f83a5"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.28.13",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.28.13",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/ssooidc/@v/v1.28.13.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/aws-sdk-go-v2/service/sts",
+            "version": "v1.33.12",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "ed89fea7aeaafe3b77f2a32855f36f8db9b70fcf661819e4c037228e0b6287cc"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.33.12",
+            "type": "framework",
+            "bom-ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.33.12",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/aws-sdk-go-v2/service/sts/@v/v1.33.12.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            },
+            "tags": [
+                "framework"
+            ]
+        },
+        {
+            "group": "",
+            "name": "github.com/aws/smithy-go",
+            "version": "v1.22.2",
+            "scope": "optional",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "8abaca1af367d489d9c1bd9dedf90844db9c75fc11f11f93b37c3161afdc2478"
+                }
+            ],
+            "purl": "pkg:golang/github.com/aws/smithy-go@v1.22.2",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/aws/smithy-go@v1.22.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/aws/smithy-go/@v/v1.22.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.21"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "true"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.5,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.5,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
+        {
+            "group": "",
+            "name": "github.com/CycloneDX/cyclonedx-go",
+            "version": "v0.9.2",
+            "scope": "required",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "bdc2baa4a80ed566a709d77ad6ac786c59d2b03250e926ccd99b8c220abce898"
+                }
+            ],
+            "purl": "pkg:golang/github.com/CycloneDX/cyclonedx-go@v0.9.2",
+            "type": "library",
+            "bom-ref": "pkg:golang/github.com/CycloneDX/cyclonedx-go@v0.9.2",
+            "properties": [
+                {
+                    "name": "SrcGoMod",
+                    "value": "/home/edvin/go/pkg/mod/cache/download/github.com/!cyclone!d!x/cyclonedx-go/@v/v0.9.2.mod"
+                },
+                {
+                    "name": "ModuleGoVersion",
+                    "value": "1.20"
+                },
+                {
+                    "name": "cdx:go:indirect",
+                    "value": "false"
+                },
+                {
+                    "name": "SrcFile",
+                    "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                }
+            ],
+            "evidence": {
+                "identity": [
+                    {
+                        "field": "purl",
+                        "confidence": 0.7,
+                        "methods": [
+                            {
+                                "technique": "manifest-analysis",
+                                "confidence": 0.7,
+                                "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                            }
+                        ],
+                        "concludedValue": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
+                    }
+                ]
+            }
+        },
         {
             "group": "",
             "name": "github.com/jackc/pgpassfile",
@@ -77,14 +1056,6 @@
                 {
                     "alg": "SHA-256",
                     "content": "084c74892e5a99b34575c46dc4f8f9261133fb107ab91932e5ec95bbf5b61c48"
-                }
-            ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "MIT",
-                        "url": "https://pkg.go.dev/github.com/jackc/pgpassfile?tab=licenses"
-                    }
                 }
             ],
             "purl": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
@@ -136,14 +1107,6 @@
                     "content": "e5325958a1169e23ef7b7def956612a0661e7e7de02d04738df0e585227d64a3"
                 }
             ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "MIT",
-                        "url": "https://pkg.go.dev/github.com/jackc/pgservicefile?tab=licenses"
-                    }
-                }
-            ],
             "purl": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
             "type": "library",
             "bom-ref": "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
@@ -186,19 +1149,11 @@
             "group": "",
             "name": "github.com/jackc/pgx/v5",
             "version": "v5.7.2",
-            "scope": "optional",
+            "scope": "required",
             "hashes": [
                 {
                     "alg": "SHA-256",
                     "content": "9dc63cf54196c60f361329195304a950a11f71c046198ab5c63acea6c6ec7c64"
-                }
-            ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "MIT",
-                        "url": "https://pkg.go.dev/github.com/jackc/pgx/v5?tab=licenses"
-                    }
                 }
             ],
             "purl": "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
@@ -215,7 +1170,7 @@
                 },
                 {
                     "name": "cdx:go:indirect",
-                    "value": "true"
+                    "value": "false"
                 },
                 {
                     "name": "SrcFile",
@@ -226,11 +1181,11 @@
                 "identity": [
                     {
                         "field": "purl",
-                        "confidence": 0.5,
+                        "confidence": 0.7,
                         "methods": [
                             {
                                 "technique": "manifest-analysis",
-                                "confidence": 0.5,
+                                "confidence": 0.7,
                                 "value": "/home/edvin/go/src/github.com/NissesSenap/sbom-api/go.mod"
                             }
                         ],
@@ -248,14 +1203,6 @@
                 {
                     "alg": "SHA-256",
                     "content": "beb8a21171ef104eb9e1a60a5d78cebd9337f6a274abe6b391916b7c439cdc7e"
-                }
-            ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "MIT",
-                        "url": "https://pkg.go.dev/github.com/jackc/puddle/v2?tab=licenses"
-                    }
                 }
             ],
             "purl": "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
@@ -305,14 +1252,6 @@
                 {
                     "alg": "SHA-256",
                     "content": "903b0bbed581131ecc57db493a3f5b9d7b0f6f1c0943a72c4ffc782883784ac9"
-                }
-            ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "BSD-3-Clause",
-                        "url": "https://pkg.go.dev/golang.org/x/crypto?tab=licenses"
-                    }
                 }
             ],
             "purl": "pkg:golang/golang.org/x/crypto@v0.31.0",
@@ -367,14 +1306,6 @@
                     "content": "0b3b7ec0abb5802c8414352d9f48c6e5056fa49eabcd5aabe5a5f2b7d76b41f9"
                 }
             ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "BSD-3-Clause",
-                        "url": "https://pkg.go.dev/golang.org/x/sync?tab=licenses"
-                    }
-                }
-            ],
             "purl": "pkg:golang/golang.org/x/sync@v0.10.0",
             "type": "library",
             "bom-ref": "pkg:golang/golang.org/x/sync@v0.10.0",
@@ -424,14 +1355,6 @@
                     "content": "e0805b31a32638f089f1279c8afcd21f9e3eef73c21663d6c4d4cb9bebd99044"
                 }
             ],
-            "licenses": [
-                {
-                    "license": {
-                        "id": "BSD-3-Clause",
-                        "url": "https://pkg.go.dev/golang.org/x/text?tab=licenses"
-                    }
-                }
-            ],
             "purl": "pkg:golang/golang.org/x/text@v0.21.0",
             "type": "library",
             "bom-ref": "pkg:golang/golang.org/x/text@v0.21.0",
@@ -473,16 +1396,171 @@
     ],
     "dependencies": [
         {
+            "ref": "pkg:golang/github.com/CycloneDX/cyclonedx-go@v0.9.2",
+            "dependsOn": []
+        },
+        {
             "ref": "pkg:golang/github.com/NissesSenap/sbom-api",
             "dependsOn": [
-                "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
-                "pkg:golang/github.com/jackc/pgservicefile@v0.0.0-20240606120523-5a60cdf6a761",
-                "pkg:golang/github.com/jackc/pgx/v5@v5.7.2",
-                "pkg:golang/github.com/jackc/puddle/v2@v2.2.2",
-                "pkg:golang/golang.org/x/crypto@v0.31.0",
-                "pkg:golang/golang.org/x/sync@v0.10.0",
-                "pkg:golang/golang.org/x/text@v0.21.0"
+                "pkg:golang/github.com/CycloneDX/cyclonedx-go@v0.9.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.29.4",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.17.57",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/s3@v1.75.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/jackc/pgx/v5@v5.7.2"
             ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.6.8",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.29.4",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.17.57",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.16.27",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.24.14",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.28.13",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.33.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.17.57",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.16.27",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.24.14",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.28.13",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.33.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.16.27",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/ini@v1.8.2",
+            "dependsOn": []
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.3.31",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/checksum@v1.5.5",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/s3shared@v1.18.12",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/s3@v1.75.2",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.6.8",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/checksum@v1.5.5",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/s3shared@v1.18.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.24.14",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.28.13",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.33.12",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.3.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.6.31",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.12.2",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.12.12",
+                "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.36.0",
+            "dependsOn": [
+                "pkg:golang/github.com/aws/smithy-go@v1.22.2"
+            ]
+        },
+        {
+            "ref": "pkg:golang/github.com/aws/smithy-go@v1.22.2",
+            "dependsOn": []
         },
         {
             "ref": "pkg:golang/github.com/jackc/pgpassfile@v1.0.0",
